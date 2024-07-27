@@ -20,6 +20,5 @@ return {
       lang = 'python3',
     },
   },
-  require('lspconfig').pyright.setup {},
   'nvim-tree/nvim-web-devicons',
 }
