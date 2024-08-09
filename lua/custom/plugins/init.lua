@@ -8,7 +8,7 @@ return {
 
     build = ':TSUpdate html',
     dependencies = {
-      'nvim-telescpoe/telescope.nvim',
+      'nvim-telescope/telescope.nvim',
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       --optional
