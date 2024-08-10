@@ -136,7 +136,7 @@ return {
       end,
     },
     keys = {
-      { '<leader>t', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
+      { '<leader>i', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
     },
   },
   { 'habamax/vim-godot', event = 'VimEnter' },
