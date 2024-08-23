@@ -112,7 +112,7 @@ return {
     -- stylua: ignore
     keys = {
       { "n", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "<leader>t", mode = { "n", "x", "o" }, function()
+      { "<leader>o", mode = { "n", "x", "o" }, function()
         require("flash").jump({
         search = { mode = "search", max_length = 0 },
         label = { after = { 0, 0 } },
