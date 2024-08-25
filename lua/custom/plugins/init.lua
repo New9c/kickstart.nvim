@@ -134,6 +134,9 @@ return {
         vim.keymap.set('n', '<CR>', api.tree.change_root_to_node, opts 'CD')
         vim.keymap.set('n', "'", api.tree.change_root_to_parent, opts 'Up')
       end,
+      view = {
+        side = 'right',
+      },
     },
     keys = {
       { '<leader>i', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
