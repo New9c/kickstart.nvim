@@ -87,6 +87,15 @@ return {
     end,
   },
   {
+    'rcarriga/nvim-notify',
+    opts = {
+      render = 'compact',
+      stages = 'fade_in_slide_out',
+      timeout = 2000,
+      top_down = false,
+    },
+  },
+  {
     'kawre/leetcode.nvim',
 
     build = ':TSUpdate html',
