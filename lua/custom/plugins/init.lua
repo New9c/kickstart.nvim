@@ -112,7 +112,7 @@ return {
     -- stylua: ignore
     keys = {
       { "n", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "<leader>o", mode = { "n", "x", "o" }, function()
+      { "<leader>i", mode = { "n", "x", "o" }, function()
         require("flash").jump({
         search = { mode = "search", max_length = 0 },
         label = { after = { 0, 0 } },
@@ -139,7 +139,7 @@ return {
       },
     },
     keys = {
-      { '<leader>i', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
+      { '<leader>o', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
     },
   },
   { 'habamax/vim-godot', event = 'VimEnter' },
