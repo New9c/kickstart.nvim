@@ -107,8 +107,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- ctrl-r -> leader-r
+-- My remaps
 vim.api.nvim_set_keymap('n', '<leader>u', '<C-r>', { noremap = true, silent = true, desc = 'Redo' })
+vim.api.nvim_set_keymap('n', '<leader>k', ':nohlsearch<CR>', { noremap = true, silent = true, desc = 'Remove hightlights' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

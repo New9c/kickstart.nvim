@@ -151,6 +151,7 @@ return {
       { '<leader>o', ':NvimTreeToggle<CR>', mode = 'n', silent = true, desc = 'File tree' },
     },
   },
+  'edluffy/hologram.nvim',
   { 'habamax/vim-godot', event = 'VimEnter' },
   {
     'ThePrimeagen/vim-be-good',
