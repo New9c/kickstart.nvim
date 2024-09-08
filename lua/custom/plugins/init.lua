@@ -130,6 +130,11 @@ return {
     },
   },
   {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+  },
+  {
     'nvim-tree/nvim-tree.lua',
     opts = {
       on_attach = function(bufnr)
