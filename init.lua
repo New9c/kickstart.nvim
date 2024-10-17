@@ -109,6 +109,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- My remaps
 vim.api.nvim_set_keymap('n', '<leader>u', '<C-r>', { noremap = true, silent = true, desc = 'Redo' })
+vim.api.nvim_set_keymap('n', '<leader>a', 'za', { noremap = true, silent = true, desc = 'Toggle fold' })
 vim.api.nvim_set_keymap('n', '<leader>k', ':nohlsearch<CR>', { noremap = true, silent = true, desc = 'Remove hightlights' })
 
 -- [[ Basic Autocommands ]]
