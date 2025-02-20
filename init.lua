@@ -102,12 +102,21 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
+vim.api.nvim_set_keymap('n', '<leader>t', ':belowright split|term<CR>A<C-l>', { noremap = true, silent = true, desc = '[T]erminal' })
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- My remaps
+vim.api.nvim_set_keymap('n', '<leader>lr', ':Leet random<CR>', { noremap = true, silent = true, desc = 'Leet random' })
+vim.api.nvim_set_keymap('n', '<leader>li', ':Leet info<CR>', { noremap = true, silent = true, desc = 'Leet info' })
+vim.api.nvim_set_keymap('n', '<leader>le', ':Leet exit<CR>', { noremap = true, silent = true, desc = 'Leet exit' })
+vim.api.nvim_set_keymap('n', '<leader>lt', ':Leet test<CR>', { noremap = true, silent = true, desc = 'Leet test' })
+vim.api.nvim_set_keymap('n', '<leader>ll', ':Leet lang<CR>', { noremap = true, silent = true, desc = 'Leet lang' })
+vim.api.nvim_set_keymap('n', '<leader>lc', ':Leet console<CR>', { noremap = true, silent = true, desc = 'Leet console' })
+vim.api.nvim_set_keymap('n', '<leader>ls', ':Leet submit<CR>', { noremap = true, silent = true, desc = 'Leet submit' })
+vim.api.nvim_set_keymap('n', '<leader>ld', ':Leet desc<CR>', { noremap = true, silent = true, desc = 'Leet desc' })
 vim.api.nvim_set_keymap('n', '<leader>u', '<C-r>', { noremap = true, silent = true, desc = 'Redo' })
 vim.api.nvim_set_keymap('n', '<leader>a', 'za', { noremap = true, silent = true, desc = 'Toggle fold' })
 vim.api.nvim_set_keymap('n', '<leader>k', ':nohlsearch<CR>', { noremap = true, silent = true, desc = 'Remove hightlights' })
@@ -122,7 +131,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank { timeout = 50 }
   end,
 })
 
@@ -208,6 +217,7 @@ require('lazy').setup({
       require('which-key').add {
         { '<leader>c', group = '[C]ode' },
         { '<leader>d', group = '[D]ocument' },
+        { '<leader>l', group = '[L]eet' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
@@ -500,7 +510,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        -- tsserver = {},
         --
 
         lua_ls = {
