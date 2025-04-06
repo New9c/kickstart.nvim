@@ -2,9 +2,6 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-package.path = package.path .. ';' .. vim.fn.expand '$HOME' .. '/.luarocks/share/lua/5.1/?/init.lua'
-package.path = package.path .. ';' .. vim.fn.expand '$HOME' .. '/.luarocks/share/lua/5.1/?.lua'
-
 return {
   {
     'startup-nvim/startup.nvim',
@@ -124,5 +121,4 @@ return {
       require('ufo').setup()
     end,
   },
-  'yunusey/codeforces-nvim',
 }

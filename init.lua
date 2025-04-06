@@ -102,7 +102,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.api.nvim_set_keymap('n', '<leader>t', ':belowright split|term<CR>A<C-l>', { noremap = true, silent = true, desc = '[T]erminal' })
+-- vim.api.nvim_set_keymap('n', '<leader>t', ':belowright split|term<CR>A<C-l>', { noremap = true, silent = true, desc = '[T]erminal' })
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -111,7 +111,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- My remaps
 vim.api.nvim_set_keymap('n', '<leader>lr', ':Leet random<CR>', { noremap = true, silent = true, desc = 'Leet random' })
 vim.api.nvim_set_keymap('n', '<leader>li', ':Leet info<CR>', { noremap = true, silent = true, desc = 'Leet info' })
-vim.api.nvim_set_keymap('n', '<leader>le', ':Leet exit<CR>', { noremap = true, silent = true, desc = 'Leet exit' })
+vim.api.nvim_set_keymap('n', '<leader>la', ':Leet list status=notac<CR>', { noremap = true, silent = true, desc = 'Leet Easys' })
+vim.api.nvim_set_keymap('n', '<leader>le', ':Leet list status=todo difficulty=easy<CR>', { noremap = true, silent = true, desc = 'Leet Easys' })
+vim.api.nvim_set_keymap('n', '<leader>lm', ':Leet list status=todo difficulty=medium<CR>', { noremap = true, silent = true, desc = 'Leet Mediums' })
+vim.api.nvim_set_keymap('n', '<leader>lh', ':Leet list status=todo difficulty=hard<CR>', { noremap = true, silent = true, desc = 'Leet Hards' })
 vim.api.nvim_set_keymap('n', '<leader>lt', ':Leet test<CR>', { noremap = true, silent = true, desc = 'Leet test' })
 vim.api.nvim_set_keymap('n', '<leader>ll', ':Leet lang<CR>', { noremap = true, silent = true, desc = 'Leet lang' })
 vim.api.nvim_set_keymap('n', '<leader>lc', ':Leet console<CR>', { noremap = true, silent = true, desc = 'Leet console' })
@@ -630,6 +633,8 @@ require('lazy').setup({
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
@@ -705,6 +710,60 @@ require('lazy').setup({
           { name = 'path' },
         },
       }
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.insert {
+          -- Select the [n]ext item
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          -- Select the [p]revious item
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+
+          -- Scroll the documentation window [b]ack / [f]orward
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+
+          -- Accept ([y]es) the completion.
+          --  This will auto-import if your LSP supports it.
+          --  This will expand snippets if the LSP sent a snippet.
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
+
+          -- If you prefer more traditional completion keymaps,
+          -- you can uncomment the following lines
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+          -- Manually trigger a completion from nvim-cmp.
+          --  Generally you don't need this, because nvim-cmp will display
+          --  completions whenever it has completion options available.
+          ['<C-Space>'] = cmp.mapping.complete {},
+
+          -- Think of <c-l> as moving to the right of your snippet expansion.
+          --  So if you have a snippet that's like:
+          --  function $name($args)
+          --    $body
+          --  end
+          --
+          -- <c-l> will move you to the right of each of the expansion locations.
+          -- <c-h> is similar, except moving you backwards.
+          ['<C-l>'] = cmp.mapping(function()
+            if luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
+            end
+          end, { 'i', 's' }),
+          ['<C-h>'] = cmp.mapping(function()
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            end
+          end, { 'i', 's' }),
+
+          -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+          --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+        },
+        sources = cmp.config.sources {
+          { name = 'path' },
+          { name = 'cmdline' },
+        },
+      })
     end,
   },
 
@@ -810,6 +869,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
+  -- require 'user.floaterminal',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
