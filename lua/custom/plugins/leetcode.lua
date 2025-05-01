@@ -15,6 +15,11 @@ return {
     opts = {
       image_support = true,
       lang = 'python3',
+      injector = { ---@type table<lc.lang, lc.inject>
+        ['cpp'] = {
+          before = { '#include <bits/stdc++.h>', 'using namespace std;' },
+        },
+      },
     },
   },
 }
