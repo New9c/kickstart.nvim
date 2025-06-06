@@ -42,7 +42,7 @@ return {
         state.floating = open_centered_floating_window { buf = state.floating.buf }
         if vim.bo[state.floating.buf].buftype ~= 'terminal' then
           vim.cmd.terminal()
-          vim.api.nvim_chan_send(vim.bo[state.floating.buf].channel, 'clear\n')
+          -- vim.api.nvim_chan_send(vim.bo[state.floating.buf].channel, 'clear\n')
         end
         vim.cmd 'startinsert'
       else
