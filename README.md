@@ -1,4 +1,10 @@
 # kickstart.nvim
+## Quick
+```sh
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick
+git clone https://github.com/New9c/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+This is kinda all you need :3
 
 ## Introduction
 
@@ -175,8 +181,6 @@ sudo apt install make gcc ripgrep unzip git xclip neovim
 </details>
 
 #### Linux Install
-I use arch (btw), and I need npm installed for pyright
-add it if needed.
 <details><summary>Ubuntu Install Steps</summary>
 
 ```
@@ -210,10 +214,11 @@ sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 </details>
 
 <details><summary>Arch Install Steps</summary>
-I use arch (btw), and I want npm installed
 
-```
-sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm
+
+```sh
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick
+git clone https://github.com/New9c/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 </details>
 
