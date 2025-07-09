@@ -1,7 +1,7 @@
 # kickstart.nvim
 ## Quick
 ```sh
-sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick wl-clipboard
 git clone https://github.com/New9c/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 This is kinda all you need :3
@@ -217,7 +217,7 @@ sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 
 
 ```sh
-sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim npm luarocks github-cli imagemagick wl-clipboard
 git clone https://github.com/New9c/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 </details>
