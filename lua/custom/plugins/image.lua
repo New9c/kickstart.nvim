@@ -1,6 +1,17 @@
 return {
   {
     '3rd/image.nvim',
-    opts = {},
+    build = false,
+    opts = {
+      processor = 'magick_cli',
+    },
+    integrations = {
+      html = {
+        enabled = true,
+      },
+      css = {
+        enabled = true,
+      },
+    },
   },
 }
