@@ -1,5 +1,6 @@
 -- ~/.config/nvim/lua/plugins/floaterminal.lua
 return {
+  --[[
   'nvim-lua/plenary.nvim', -- dummy plugin, required for Lazy to accept the file
   name = 'floaterminal',
   dev = { true },
@@ -42,7 +43,6 @@ return {
         state.floating = open_centered_floating_window { buf = state.floating.buf }
         if vim.bo[state.floating.buf].buftype ~= 'terminal' then
           vim.cmd.terminal()
-          -- vim.api.nvim_chan_send(vim.bo[state.floating.buf].channel, 'clear\n')
         end
         vim.cmd 'startinsert'
       else
@@ -52,4 +52,6 @@ return {
     vim.api.nvim_create_user_command('Floaterminal', toggle_floaterminal, {})
     vim.keymap.set({ 'n', 't' }, '<space>tt', toggle_floaterminal)
   end,
+	]]
+  --
 }

@@ -118,9 +118,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- My remaps
-vim.keymap.set('n', '<leader>lr', ':Leet random<CR>', { desc = 'Leet random' })
+vim.keymap.set('n', '<leader>tt', ':FloatermToggle<CR>', { desc = 'Toggle Terminal' })
+vim.keymap.set('n', '<leader>lr', ':Leet random status=todo difficulty=medium<CR>', { desc = 'Leet random' })
 vim.keymap.set('n', '<leader>li', ':Leet info<CR>', { desc = 'Leet info' })
-vim.keymap.set('n', '<leader>la', ':Leet list status=notac<CR>', { desc = 'Leet All' })
+vim.keymap.set('n', '<leader>la', ':Leet list status=notac<CR>', { desc = 'Leet Redo' })
 vim.keymap.set('n', '<leader>le', ':Leet list status=todo difficulty=easy<CR>', { desc = 'Leet Easys' })
 vim.keymap.set('n', '<leader>lm', ':Leet list status=todo difficulty=medium<CR>', { desc = 'Leet Mediums' })
 vim.keymap.set('n', '<leader>lh', ':Leet list status=todo difficulty=hard<CR>', { desc = 'Leet Hards' })
@@ -370,7 +371,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s<leader>', builtin.oldfiles, { desc = '[S]earch Recent Files' })
-      vim.keymap.set('n', '<leader>/', builtin.buffers, { desc = '[/] Find existing buffers' })
+      vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing [B]uffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader><leader>', function()
@@ -615,7 +616,8 @@ require('lazy').setup({
         clangd = {},
         gopls = {},
         pyright = {},
-        -- rust_analyzer = {}, rustacem with do it for us!
+        rust_analyzer = {}, -- rustacem with do it for us!
+        jsonls = {}, -- rustacem with do it for us!
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
