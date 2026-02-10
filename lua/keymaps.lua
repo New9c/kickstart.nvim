@@ -1,7 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -47,8 +46,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.hl.on_yank()
+    vim.hl.on_yank { timeout = 50 }
   end,
 })
+
+-- My remaps
+vim.keymap.set('n', '<leader>tt', ':FloatermToggle<CR>', { desc = 'Toggle Terminal' })
+vim.keymap.set('n', '<leader>a', 'za', { desc = 'Toggle fold' })
 
 -- vim: ts=2 sts=2 sw=2 et
