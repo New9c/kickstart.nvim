@@ -5,11 +5,7 @@
 
 vim.o.number = true
 vim.o.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
@@ -60,12 +56,14 @@ vim.o.inccommand = 'split'
 -- Show which line your cursor is on
 vim.o.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+vim.o.shiftwidth = 4 -- Number of spaces for an indent
+vim.o.tabstop = 4 -- Number of spaces a tab counts for
+vim.o.expandtab = true -- Convert tabs to spaces
 
 -- vim: ts=2 sts=2 sw=2 et

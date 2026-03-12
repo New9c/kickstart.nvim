@@ -1,7 +1,9 @@
 return {
   'theprimeagen/99',
   branch = 'master',
-  dependencies = { 'hrsh7th/nvim-cmp' }, -- Ensure you have cmp if using the default source
+  dependencies = {
+    { 'saghen/blink.compat', version = '2.*', opts = {} },
+  },
   config = function()
     local _99 = require '99'
     -- For logging that is to a file if you wish to trace through requests
@@ -11,21 +13,25 @@ return {
       provider = _99.OpenCodeProvider,
       model = 'opencode/big-pickle',
       completion = {
-        source = 'cmp', -- Currently only 'cmp' is supported
+        source = 'blink',
         custom_rules = {
-          -- "path/to/your/custom/rules/"
+          'rules/',
         },
       },
       -- Any other required fields
       md_files = { 'AGENT.md' },
     }
-    vim.keymap.set({ 'n', 'v' }, '<leader>9', function()
+    vim.keymap.set({ 'n', 'v' }, '<leader>9v', function()
       _99.visual()
-    end, { desc = 'Prompt 99' })
+    end, { desc = 'Visual 99' })
 
-    --- if you have a request you dont want to make any changes, just cancel it
-    vim.keymap.set({ 'n', 'v' }, '<leader>0', function()
+    vim.keymap.set({ 'n', 'v' }, '<leader>9x', function()
       _99.stop_all_requests()
     end, { desc = 'Stop 99' })
+
+    --- if you have a request you dont want to make any changes, just cancel it
+    vim.keymap.set({ 'n', 'v' }, '<leader>9s', function()
+      _99.stop_all_requests()
+    end, { desc = 'Search 99' })
   end,
 }

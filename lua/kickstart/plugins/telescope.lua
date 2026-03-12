@@ -91,6 +91,7 @@ return {
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
+          prompt_title = 'Fuzzy Flying',
         })
       end, { desc = '[ ] Fuzzily search in current buffer' })
 
@@ -105,8 +106,18 @@ return {
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        builtin.find_files {
+          prompt_title = 'Find Neovim Files',
+          cwd = vim.fn.stdpath 'config',
+        }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files {
+          prompt_title = 'Find Config Files',
+          cwd = '~/.config',
+        }
+      end, { desc = '[S]earch [C]onfig files' })
     end,
   },
 }
