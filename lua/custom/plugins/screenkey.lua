@@ -21,6 +21,6 @@ return {
   },
 
   keys = {
-    { '<leader>k', ':Screenkey<CR>', desc = 'Screenkey' },
+    { '<leader>k', '<cmd>Screenkey<CR>', desc = 'Screenkey' },
   },
 }

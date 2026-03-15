@@ -63,6 +63,7 @@ return {
         { '<leader>9', group = '99' },
         { '<leader>r', group = 'Refactor' },
         { '<leader>t', group = 'Toggle' },
+        { '<leader>g', group = 'Git' },
         { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },
       },
     },

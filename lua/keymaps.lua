@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- My remaps
-vim.keymap.set('n', '<leader>tt', ':FloatermToggle<CR>', { desc = 'Toggle Terminal' })
+-- vim.keymap.set('n', '<leader>tt', ':FloatermToggle<CR>', { desc = 'Toggle Terminal' })
 vim.keymap.set('n', '<leader>a', 'za', { desc = 'Toggle fold' })
 
 -- vim: ts=2 sts=2 sw=2 et
