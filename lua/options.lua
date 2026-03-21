@@ -1,12 +1,11 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
+vim.o.smartindent = true
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -30,7 +29,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 300
@@ -65,5 +64,7 @@ vim.o.confirm = true
 vim.o.shiftwidth = 4 -- Number of spaces for an indent
 vim.o.tabstop = 4 -- Number of spaces a tab counts for
 vim.o.expandtab = true -- Convert tabs to spaces
+
+vim.o.hlsearch = false
 
 -- vim: ts=2 sts=2 sw=2 et

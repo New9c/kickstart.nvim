@@ -1,4 +1,5 @@
 return {
+  --[[
   'New9c/screenkey.nvim',
   -- dir = '/home/ninc/screenkey.nvim',
   lazy = false,
@@ -23,4 +24,5 @@ return {
   keys = {
     { '<leader>k', '<cmd>Screenkey<CR>', desc = 'Screenkey' },
   },
+]]
 }

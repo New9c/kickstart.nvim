@@ -79,11 +79,14 @@ return {
       vim.keymap.set('n', '<leader>ss', builtin.find_files, { desc = '[S]earch files' })
       vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch select [T]elescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s<leader>', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing [B]uffers' })
+      vim.keymap.set('n', '<leader>s<leader>', function()
+        builtin.oldfiles {
+          prompt_title = 'Recent files',
+        }
+      end, { desc = '[S]earch Recent Files ("." for repeat)' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader><leader>', function()
@@ -100,7 +103,7 @@ return {
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
+          prompt_title = 'God Grep in Open Files',
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
@@ -111,6 +114,12 @@ return {
           cwd = vim.fn.stdpath 'config',
         }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<leader>sg', function()
+        builtin.live_grep {
+          prompt_title = 'God Grep',
+        }
+      end, { desc = '[S]earch by [G]rep' })
 
       vim.keymap.set('n', '<leader>sc', function()
         builtin.find_files {

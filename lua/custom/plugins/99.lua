@@ -21,17 +21,20 @@ return {
       -- Any other required fields
       md_files = { 'AGENT.md' },
     }
-    vim.keymap.set({ 'n', 'v' }, '<leader>9v', function()
+    vim.keymap.set({ 'v' }, '<leader>aa', function()
       _99.visual()
     end, { desc = 'Visual 99' })
 
-    vim.keymap.set({ 'n', 'v' }, '<leader>9x', function()
+    vim.keymap.set({ 'n' }, '<leader>ax', function()
       _99.stop_all_requests()
     end, { desc = 'Stop 99' })
 
     --- if you have a request you dont want to make any changes, just cancel it
-    vim.keymap.set({ 'n', 'v' }, '<leader>9s', function()
-      _99.stop_all_requests()
+    vim.keymap.set({ 'n' }, '<leader>as', function()
+      _99.search()
     end, { desc = 'Search 99' })
+    vim.keymap.set('n', '<leader>am', function()
+      require('99.extensions.telescope').select_model()
+    end)
   end,
 }

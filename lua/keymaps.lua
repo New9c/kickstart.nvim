@@ -2,7 +2,8 @@
 --  See `:help vim.keymap.set()`
 
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -51,7 +52,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- My remaps
--- vim.keymap.set('n', '<leader>tt', ':FloatermToggle<CR>', { desc = 'Toggle Terminal' })
-vim.keymap.set('n', '<leader>a', 'za', { desc = 'Toggle fold' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- vim: ts=2 sts=2 sw=2 et
